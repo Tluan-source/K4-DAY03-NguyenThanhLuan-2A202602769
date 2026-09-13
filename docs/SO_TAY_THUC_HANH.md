@@ -29,16 +29,16 @@ gantt
 ## 📝 CHECKLIST CÁ NHÂN THEO TỪNG MỐC THỜI GIAN
 
 ### 🔷 PHẦN 1 (45 phút): Đánh giá Agentic Fit & Tool Schemas
-* [ ] Chọn 1 chủ đề thực tế từ tệp `docs/DANH_SACH_DE_TAI.md`.
-* [ ] Điền bảng Scoring Matrix 4 tiêu chí Agentic Fit vào file `docs/trace_eval.md`.
-* [ ] Khai báo Tool Schema đúng chuẩn JSON Schema cho `schedule_appointment` vào file `src/tools.py`.
-* [ ] Thêm 5 câu test case thực tế vào file `config/test_cases.json`.
+* [X] Chọn 1 chủ đề thực tế từ tệp `docs/DANH_SACH_DE_TAI.md`.
+* [X] Điền bảng Scoring Matrix 4 tiêu chí Agentic Fit vào file `docs/trace_eval.md`.
+* [X] Khai báo Tool Schema đúng chuẩn JSON Schema cho `schedule_appointment` vào file `src/tools.py`.
+* [X] Thêm 5 câu test case thực tế vào file `config/test_cases.json`.
 
 ---
 
 ### 🔷 PHẦN 2 (60 phút): ReAct Agent & MCP Server
-* [ ] Hoàn thiện hàm thực thi gọi Tool theo chuẩn giao thức MCP trong `src/mcp_server.py`.
-* [ ] Chạy lệnh `python src/mcp_server.py` xác nhận khởi tạo thành công MCP Server.
+* [X] Hoàn thiện hàm thực thi gọi Tool theo chuẩn giao thức MCP trong `src/mcp_server.py`.
+* [X] Chạy lệnh `python src/mcp_server.py` xác nhận khởi tạo thành công MCP Server.
 * [ ] Lắp ráp vòng lặp ReAct Native Tool Calling trong `src/app.py`.
 
 ---

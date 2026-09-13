@@ -1,0 +1,37 @@
+[
+  {
+    "id": "TC01",
+    "type": "direct_query",
+    "question": "Sinh viên năm 3 ngành AI nên chuẩn bị những gì trong CV trước khi ứng tuyển thực tập?",
+    "expected_behavior": "Agent trả lời trực tiếp bằng kiến thức chung trong System Prompt, không gọi bất kỳ Tool nào vì câu hỏi không cần dữ liệu thời gian thực.",
+    "complexity": "Low"
+  },
+  {
+    "id": "TC02",
+    "type": "single_tool_query",
+    "question": "Cho tôi xem hồ sơ học vụ của sinh viên SV2026001.",
+    "expected_behavior": "Agent gọi Tool 'academic_query' với student_id='SV2026001', nhận về status SUCCESS và tóm tắt lại họ tên, lớp, GPA và cố vấn học tập của Nguyễn Văn An.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC03",
+    "type": "single_tool_query",
+    "question": "Tìm giúp tôi các vị trí thực tập về Computer Vision tại Hà Nội.",
+    "expected_behavior": "Agent gọi Tool 'search_tool' với tiêu chí Computer Vision và địa điểm Hà Nội, nhận về đúng JOB003 của VisionNext tại Hanoi và không liệt kê các vị trí ở thành phố khác.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC04",
+    "type": "multi_step_reasoning",
+    "question": "Tra cứu hồ sơ sinh viên SV2026001 rồi đặt lịch hẹn tư vấn hướng nghiệp với cố vấn học tập của bạn ấy vào 14:00 ngày 20/09/2026.",
+    "expected_behavior": "Agent suy luận hai bước nối tiếp: (1) gọi 'academic_query' để lấy tên cố vấn học tập từ hồ sơ, (2) dùng chính tên cố vấn lấy được để gọi 'schedule_appointment' với datetime_str='14:00 20/09/2026'. Bước sau phụ thuộc trực tiếp vào Observation của bước trước.",
+    "complexity": "High"
+  },
+  {
+    "id": "TC05",
+    "type": "edge_case_handling",
+    "question": "Lưu vị trí thực tập có mã JOB999 vào danh sách ứng tuyển của sinh viên SV2026001 với trạng thái saved.",
+    "expected_behavior": "Agent gọi Tool 'save_application' nhưng JOB999 không tồn tại trong cơ sở dữ liệu. Agent phải báo rõ là không tìm thấy vị trí này và tuyệt đối không bịa ra tên công ty hay chức danh (Anti-Hallucination).",
+    "complexity": "Medium"
+  }
+]
