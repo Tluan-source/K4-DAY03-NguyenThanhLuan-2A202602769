@@ -9,6 +9,15 @@ import json
 from typing import Dict, Any, List
 from dotenv import load_dotenv
 
+try:
+    # Dùng kho chứng chỉ hệ điều hành (Windows/macOS) thay vì certifi bundle.
+    # Cần thiết trên máy có phần mềm antivirus/proxy chèn SSL (SSL inspection) khiến
+    # certifi mặc định không xác thực được chứng chỉ khi gọi Gemini/OpenAI API thật.
+    import truststore
+    truststore.inject_into_ssl()
+except ImportError:
+    pass
+
 if sys.stdout.encoding != 'utf-8':
     try:
         sys.stdout.reconfigure(encoding='utf-8')
